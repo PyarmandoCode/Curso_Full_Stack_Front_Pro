@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block page_content %}
    <div class="mw6 center pa3 san-serif" >
+        <h1>Cars Rent</h1>
         {% for car in c %}
             <div class="pa2 mb3 striped--near-white">
                 <div class="pl2">
-                    <p class="mb2">Make/Model:{{car.make}} {{car.model}}</p>
-                    <p class="mb2">Year:{{car.year}}</p>
-                    <p class="mb2">Vin:{{car.year}}</p>
+                    <h1>{{car.make}}</h1>
+                    <img src="{{car.picture}}" alt={{car.name}}/>
+                    <p class="mb2"><b>Model:</b>{{car.model}}</p>
+                    <p class="mb2"><b>Year:</b>{{car.year}}</p>
+                    <p class="mb2"><b>Vin:</b>{{car.year}}</p></br>
+                    <a class="boton" href="{% url 'driver' car.id %}">Driver</a>
                 </div>
             </div>       
         {% endfor%}  

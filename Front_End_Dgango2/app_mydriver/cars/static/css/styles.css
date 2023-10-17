@@ -1,0 +1,10 @@
+.boton {
+    border: 1px solid #2e518b;
+    padding: 10px;
+    background-color: #2e518b;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Helvetica' ,sans-serif;
+    border-radius: 50px;
+}
