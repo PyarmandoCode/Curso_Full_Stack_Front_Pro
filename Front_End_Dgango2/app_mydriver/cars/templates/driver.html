@@ -8,7 +8,10 @@
                     <img src="{{d.picture}}" width="50%" length="50%"/>
                     <h1>{{d.name}}</h1>
                     <p class="mb2"><b>Licencia:</b>{{d.license}}</p>
-                    {% comment %} <p class="mb2"><b>Comentarios:</b>{{d.coments}}</p></br> {% endcomment %}
+                    {% for c in f %}
+                        <b>Comentario:# {{forloop.counter}}</b>
+                        <p class="mb2">{{c}}</p></br> 
+                    {% endfor %}
                     <a class="boton" href="{% url 'index' %}">Regresar</a>
                 </div>
             </div>  

@@ -12,7 +12,10 @@ def index(request):
 def driver_car(request,pk):
     try:
         driver=Driver.objects.get(pk=pk)
-        feedbacks=Feedback.objects.filter(driver=1)
+        pk_driver=driver.pk
+        print(f"obteniendo el PK:{driver.pk}")
+        feedbacks=Feedback.objects.filter(driver=pk_driver)
+        
     except Driver.DoesNotExist:
         driver=None    
     context = {
