@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'app_mydriver.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bddriver',
+        'NAME': 'dbdriver',
         'USER':'postgres',
         'PASSWORD':'Rioazulq12',
         'HOST':'localhost',
