@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Vuelo
+from .models import Vuelo,Pasajero
 
-admin.site.register([Vuelo])
+admin.site.register([Vuelo,Pasajero])
 
 

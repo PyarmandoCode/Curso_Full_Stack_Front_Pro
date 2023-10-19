@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% block content %}
 <div class="container mt-5 mb-3">
+ <h1>Vuelos Disponibles</h1>
   <div class="row">
    {% for vuelo in vuelos %} 
       <div class="col-md-4">
@@ -16,13 +17,15 @@
               </div>
               <div class="mt-5">
                   <img src={{vuelo.foto.url}} class="img-thumbnail" />
-                  <h3 class="heading">Senior Product<br>Designer-Singapore</h3>
+                  <h3 class="heading">  
+                    <a href="{% url 'vuelo' vuelo.id %}"> {{vuelo}} </a>
+                    </h3>
                   <div class="mt-5">
                       
-                      <div class="mt-3"> 
+                      {% comment %} <div class="mt-3"> 
                         {{vuelo}}
 
-                      </div>
+                      </div> {% endcomment %}
                   </div>
               </div>
           </div>
