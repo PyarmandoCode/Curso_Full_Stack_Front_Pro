@@ -46,22 +46,21 @@
         {% endfor %}  
     </div> 
     
-    <hr>
+   <hr>
 
-    <h1>No Pasajeros</h1>
-   <div class="row row-cols-1 row-cols-md-3">
-     {% for pasajero in no_pasajeros %}
-        <div class="col mb-4">
-            <div class="card">
-                <img src="{% static  'img/sinfoto.png' %}" style="width:100px" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">{{pasajero}}</h5>  
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>  
-            </div>
-        </div>
-        {% endfor %}  
-    </div> 
-   
+  
+   {% if no_pasajeros %}
+    <form action="{% url 'reservar' vuelo.id %}" method="post">
+        {% csrf_token %}
+        <select name="pasajero">
+            {% for pasajero in no_pasajeros %}
+                <option value="{{pasajero.id}}">{{pasajero}}</option>
+            {% endfor %}  
+        </select>    
+         <input type="submit" class="btn btn-primary" value="Reservar un Vuelo" >
+    </form> 
 
+   {% else %} 
+            <div>Todos Los Pasajeros ya estan en ese Vuelo</div>
+   {% endif %}   
 {% endblock%} 

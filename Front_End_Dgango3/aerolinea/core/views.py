@@ -10,7 +10,8 @@ def index(request):
     context = {
         'vuelos':Vuelo.objects.all()
     }
-    
+
+   
     return render(request,template_name,context)
 
 def vuelo(request,vuelo_id):
@@ -27,5 +28,26 @@ def vuelo(request,vuelo_id):
         "no_pasajeros":no_pasajeros
     }
     return render(request,template_name,context)
+
+def reservar(request,vuelo_id):
+    try:
+        pasajero_id=int(request.POST["pasajero"])
+        pasajero=Pasajero.objects.get(pk=pasajero_id)
+        vuelo=Vuelo.objects.get(pk=vuelo_id)
+    except KeyError:
+        return render(request,"error.html",{"msg":"No Selecciono el Pasajero"})
+    except Vuelo.DoesNotExist:
+        return render(request,"error.html",{"msg":"No Existe el Vuelo"})
+    except Pasajero.DoesNotExist:
+        return render(request,"error.html",{"msg":"No Existe el Pasajero"})
+    #Adicionamos Un Vuelo al Pasajero seleccionado
+    pasajero.vuelo.add(vuelo)
+    #Se recargar toda la pagina se observara el pasajero ya incluido en ese vuelo
+    return HttpResponseRedirect(reverse("vuelo",args=(vuelo_id,)))
+
+    
+
+
+
     
     
