@@ -23,14 +23,45 @@
                           {{vuelo.descripcion}}
                         </div> 
                     </div>
-
-
-
                      <h3 class="heading">  
                        <a href="{% url 'index' %}"> Retornar </a>
                        </h3>
                  </div>
              </div>
          </div>
+        </div>   
+   <hr>
+   <h1>Pasajeros</h1>
+   <div class="row row-cols-1 row-cols-md-3">
+     {% for pasajero in pasajeros %}
+        <div class="col mb-4">
+            <div class="card">
+                <img src="{% static  'img/sinfoto.png' %}" style="width:100px" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{pasajero}}</h5>  
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>  
+            </div>
+        </div>
+        {% endfor %}  
+    </div> 
+    
+    <hr>
+
+    <h1>No Pasajeros</h1>
+   <div class="row row-cols-1 row-cols-md-3">
+     {% for pasajero in no_pasajeros %}
+        <div class="col mb-4">
+            <div class="card">
+                <img src="{% static  'img/sinfoto.png' %}" style="width:100px" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{pasajero}}</h5>  
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>  
+            </div>
+        </div>
+        {% endfor %}  
+    </div> 
    
+
 {% endblock%} 

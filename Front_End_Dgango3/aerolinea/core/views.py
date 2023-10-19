@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Vuelo,Pasajero
-
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.urls import reverse
 
@@ -11,6 +10,7 @@ def index(request):
     context = {
         'vuelos':Vuelo.objects.all()
     }
+    
     return render(request,template_name,context)
 
 def vuelo(request,vuelo_id):
