@@ -36,10 +36,11 @@
      {% for pasajero in pasajeros %}
         <div class="col mb-4">
             <div class="card">
-                <img src="{% static  'img/sinfoto.png' %}" style="width:100px" class="card-img-top">
+                <img src={{pasajero.foto.url}} style="width:100px" class="card-img-top"  />
+                {% comment %} <img src="{% static  'img/sinfoto.png' %}" style="width:100px" class="card-img-top"> {% endcomment %}
                     <div class="card-body">
                         <h5 class="card-title">{{pasajero}}</h5>  
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">{{pasajero.info}}</p>
                     </div>  
             </div>
         </div>
