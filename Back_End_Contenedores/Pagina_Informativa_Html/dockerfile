@@ -1,0 +1,8 @@
+#Utilizar la imagen de Nginx
+FROM nginx:1.19.0-alpine
+#Copiar los archivos de tu proyecto en el contenedor
+COPY . /usr/share/nginx/html
+#Exponer en el Puerto 80
+EXPOSE 80
+#Comando para iniciar el servidor web
+CMD [ "nginx" ,"-g" ,"daemon off;" ]

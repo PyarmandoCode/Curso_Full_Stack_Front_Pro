@@ -1,0 +1,8 @@
+-Logearse a docker hub:
+docker login
+-Usar la imagen creada localemente repositorio de docker hub
+docker image tag mi-aplicacion-web armandoruiz/aplicacion_web_informativa
+-Subir la imagen al repositorio de docker hub
+docker push armandoruiz/aplicacion_web_informativa
+-Ejeuctar el contenedor
+docker run -d armandoruiz/aplicacion_web_informativa

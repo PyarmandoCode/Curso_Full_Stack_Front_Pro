@@ -1,0 +1,45 @@
+docker --version
+docker help
+1>ver las imagenes  == ingresar a docker hub
+docker images = las imagenes se descarga por capas se descarga de manera local en 
+                el docker desktop
+2>descargar node
+docker pull node
+3>docker images (veras las imagenes descargadas de node)
+las imagenes se ejecutan dentro del contenedor
+4>bajamos otra version de node (ingresa a la pagina de node y bajate la ultima)
+docker pull node:18.16.0
+5>docker images ( veras 2 imagenes descargadas)
+6>docker pull postgres (descargar postgres si no pones una version especiifca baja la ultima)
+7>docker images (ya tienes 3 imagenes)
+8>docker image rm <nombre del repositorio>(eliminar imagenes)
+9>docker images (ver las imagenes que tienes)
+10>docker pull mongo  (ya tienes 3 images descargadas)
+crar el contenedor en base a la imagen descargada de mongo
+======================================================
+11>docker create mongo  --mongo es el nombre de la imagen descargada
+12>docker ps --los contenedores en ejecuccion
+13>docker ps -a  (ver los contenedores que estan en ejecucion o no)
+14>levanta el contenedor desde docker desktop y vuelve a dar docker ps
+15>veras el puerto no de tu maquina si no del contenedor - mapping
+16>docker stop <nombre o id puedes usar los primeros 4 cara>detener un contenedor para eliminarlo
+17>docker rm <usa los 4 primeros caracteres del contenedor>eliminas el contenedor
+18>docker create --name mibdnosql mongo >crear un contenedor con el nombre definido por mi
+19>docker ps -a
+20>docker start mibdnosql >iniciar el contenedor
+crear el puetnte entre tu maquina y el contenedor (mapera el contenedor y tu pc>
+puerto del anfitrion(es tu maquina) y tu contenedor
+====================================================
+21>docker create -p27017:27017 --name mibdnosql mongo
+22>docker ps -a
+23>docker start mibdnosql
+24>docker ps <esta ejecutado y mira el puerto que utiliza>
+comando que hace todo en uno (busca la imagen,crea el contenedor y lo inicia)
+===========================
+25>docker run -d mongo
+26>docker ps -a 
+27>docker run --name miotrocontenedor -p27017:27017 -d mongo
+28>docker logs mongo
+29>docker logs --follow mongo (siempre escucha>
+
+ 

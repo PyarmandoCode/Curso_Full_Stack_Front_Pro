@@ -1,0 +1,43 @@
+Crear el Contenedor de postgres:
+================================
+docker run --name mi_contenedor_postgres -e POSTGRES_PASSWORD=123 -d -p 5432:5432 postgres
+
+Ejecutamos el Contenedor
+========================
+docker exec -it mi_contenedor_postgres psql -U postgres
+
+Creamos la BD
+=============
+create database prueba;
+
+Ver las BD Creadas
+=================
+\l+
+
+Usar la BD CREADA
+=================
+ \c prueba;
+
+CREAMOS LA TABLA
+==================
+create table empleados (id int primary key,name varchar(100));
+
+INSERTAR REGISTROS
+==================
+insert into empleados values(1,'Armando Ruiz');
+
+VER TODOS LOS REGISTROS
+========================
+select * from empleados
+
+Detener el contenedor
+========================
+docker stop mi_contenedor_postgres
+
+Iniciamos el Contenedor
+========================
+docker start mi_contenedor_postgres
+
+Ejecutamos el contenedor
+=========================
+docker exec -it mi_contenedor_postgres psql -U postgres
